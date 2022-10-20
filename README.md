@@ -1,1 +1,1 @@
-# amplify-petstore-app
+# Updated readme
