@@ -6,36 +6,67 @@
 
 /* eslint-disable */
 import * as React from "react";
-import { getOverrideProps } from "@aws-amplify/ui-react/internal";
+import {
+  getOverrideProps,
+  useAuthSignOutAction,
+} from "@aws-amplify/ui-react/internal";
 import { Button, Flex, Image, Text } from "@aws-amplify/ui-react";
 export default function PetProfile(props) {
   const { pet, overrides, ...rest } = props;
+  const aboutColonGreateanimalOnClick = useAuthSignOutAction({ global: true });
   return (
     <Flex
       gap="24px"
       direction="column"
-      width="320px"
+      width="unset"
+      height="609px"
+      justifyContent="flex-start"
       alignItems="center"
       position="relative"
+      borderRadius="25px"
       padding="24px 24px 24px 24px"
-      backgroundColor="rgba(255,255,255,1)"
+      backgroundColor="rgba(211,221,232,1)"
       {...rest}
       {...getOverrideProps(overrides, "PetProfile")}
     >
+      <Button
+        display="flex"
+        direction="row"
+        width="unset"
+        height="unset"
+        justifyContent="center"
+        alignItems="center"
+        shrink="0"
+        alignSelf="stretch"
+        position="relative"
+        padding="8px 16px 8px 16px"
+        size="large"
+        isDisabled={false}
+        variation="link"
+        children="Delete"
+        {...getOverrideProps(overrides, "Button34482697")}
+      ></Button>
       <Image
         width="160px"
         height="160px"
+        display="block"
+        gap="unset"
+        alignItems="unset"
+        justifyContent="unset"
         shrink="0"
         position="relative"
         borderRadius="160px"
         padding="0px 0px 0px 0px"
+        objectFit="cover"
         src={pet?.image}
         {...getOverrideProps(overrides, "image")}
       ></Image>
       <Flex
         gap="8px"
         direction="column"
-        width="fit-content"
+        width="unset"
+        height="unset"
+        justifyContent="flex-start"
         alignItems="center"
         shrink="0"
         position="relative"
@@ -49,14 +80,18 @@ export default function PetProfile(props) {
           color="rgba(13,26,38,1)"
           lineHeight="25px"
           textAlign="center"
-          display="flex"
+          display="block"
           direction="column"
-          justifyContent="flex-start"
+          justifyContent="unset"
+          width="unset"
+          height="unset"
+          gap="unset"
+          alignItems="unset"
           shrink="0"
           position="relative"
           padding="0px 0px 0px 0px"
           whiteSpace="pre-wrap"
-          children={pet?.name}
+          children={`${"Name: "}${pet?.name}`}
           {...getOverrideProps(overrides, "Melinda Marcus")}
         ></Text>
         <Text
@@ -66,32 +101,113 @@ export default function PetProfile(props) {
           color="rgba(48,64,80,1)"
           lineHeight="24px"
           textAlign="center"
-          display="flex"
+          display="block"
           direction="column"
-          justifyContent="flex-start"
+          justifyContent="unset"
           letterSpacing="0.01px"
+          width="unset"
+          height="unset"
+          gap="unset"
+          alignItems="unset"
           shrink="0"
           position="relative"
           padding="0px 0px 0px 0px"
           whiteSpace="pre-wrap"
-          children={pet?.about}
-          {...getOverrideProps(overrides, "Design Engineer at Cloth Studios")}
+          children={`${"Breed: "}${pet?.breed}`}
+          {...getOverrideProps(overrides, "Breed")}
         ></Text>
+        <Text
+          fontFamily="Inter"
+          fontSize="16px"
+          fontWeight="400"
+          color="rgba(48,64,80,1)"
+          lineHeight="24px"
+          textAlign="center"
+          display="block"
+          direction="column"
+          justifyContent="unset"
+          letterSpacing="0.01px"
+          width="unset"
+          height="unset"
+          gap="unset"
+          alignItems="unset"
+          shrink="0"
+          position="relative"
+          padding="0px 0px 0px 0px"
+          whiteSpace="pre-wrap"
+          children={`${"About:"}${pet?.about}`}
+          onClick={() => {
+            aboutColonGreateanimalOnClick();
+          }}
+          {...getOverrideProps(overrides, "About: Greate animal")}
+        ></Text>
+        <Text
+          fontFamily="Inter"
+          fontSize="16px"
+          fontWeight="400"
+          color="rgba(48,64,80,1)"
+          lineHeight="24px"
+          textAlign="center"
+          display="block"
+          direction="column"
+          justifyContent="unset"
+          letterSpacing="0.01px"
+          width="unset"
+          height="unset"
+          gap="unset"
+          alignItems="unset"
+          shrink="0"
+          position="relative"
+          padding="0px 0px 0px 0px"
+          whiteSpace="pre-wrap"
+          children={`${"Age: "}${pet?.age}`}
+          {...getOverrideProps(overrides, "Age: 23")}
+        ></Text>
+      </Flex>
+      <Flex
+        gap="10px"
+        direction="column"
+        width="unset"
+        height="unset"
+        justifyContent="flex-start"
+        alignItems="flex-start"
+        shrink="0"
+        position="relative"
+        padding="0px 0px 0px 0px"
+        {...getOverrideProps(overrides, "Frame 418")}
+      >
+        <Button
+          display="flex"
+          gap="0"
+          direction="row"
+          width="272px"
+          height="unset"
+          justifyContent="center"
+          alignItems="center"
+          shrink="0"
+          position="relative"
+          size="large"
+          isDisabled={false}
+          variation="primary"
+          children="Profile"
+          {...getOverrideProps(overrides, "Button29766907")}
+        ></Button>
       </Flex>
       <Button
         display="flex"
         gap="0"
+        direction="row"
+        width="278px"
+        height="41px"
         justifyContent="center"
         alignItems="center"
         shrink="0"
-        alignSelf="stretch"
-        objectFit="cover"
         position="relative"
         size="large"
         isDisabled={false}
         variation="primary"
-        children="View Profile"
-        {...getOverrideProps(overrides, "Button")}
+        children="Update"
+        {...getOverrideProps(overrides, "Button34482688")}
       ></Button>
     </Flex>
   );
