@@ -9,10 +9,15 @@ import * as React from "react";
 import {
   getOverrideProps,
   useAuthSignOutAction,
+  useDataStoreDeleteAction,
 } from "@aws-amplify/ui-react/internal";
+import { Pet } from "../models";
+import { schema } from "../models/schema";
 import { Button, Flex, Image, Text } from "@aws-amplify/ui-react";
 export default function PetProfile(props) {
   const { pet, overrides, ...rest } = props;
+  const buttonThreeFourFourEightTwoSixNineSevenOnClick =
+    useDataStoreDeleteAction({ id: pet?.id, model: Pet, schema: schema });
   const aboutColonGreateanimalOnClick = useAuthSignOutAction({ global: true });
   return (
     <Flex
@@ -44,6 +49,9 @@ export default function PetProfile(props) {
         isDisabled={false}
         variation="link"
         children="Delete"
+        onClick={() => {
+          buttonThreeFourFourEightTwoSixNineSevenOnClick();
+        }}
         {...getOverrideProps(overrides, "Button34482697")}
       ></Button>
       <Image
